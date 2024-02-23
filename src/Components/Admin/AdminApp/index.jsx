@@ -9,8 +9,8 @@ import { Outlet } from 'react-router-dom'
 
 
 import { useDispatch } from 'react-redux'
-import Header from '../../../Components/Header'
-import Footer from '../../../Components/Footer'
+import Header from '../../Header'
+import Footer from '../../Footer'
 import { login,logout } from '../../../Reducer/Auth'
 
 function AdminApp() {

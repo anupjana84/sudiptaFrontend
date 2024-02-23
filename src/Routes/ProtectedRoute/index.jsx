@@ -17,7 +17,7 @@ const ProtectedRoute =({
     const [loader, setLoader] = useState(true)
     const authStatus = useSelector(state => state.auth.status)
     const authrole = useSelector(state => state.auth.role)
-console.log(authStatus,"authentication",authentication,authrole)
+//console.log(authStatus,"authentication",authentication,authrole)
     useEffect(() => {
         
      
@@ -41,9 +41,9 @@ if (authStatus && authrole==="user") {
         
          
         setLoader(false)
-    }, [authStatus,authrole, authentication])
+    }, [authStatus,authrole,navigate, authentication])
 
-  return loader ? <h1>Loading...</h1> : <> yes {children}</>
+  return loader ? <h1>Loading...</h1> : <>  {children}</>
 }
 export default ProtectedRoute
 

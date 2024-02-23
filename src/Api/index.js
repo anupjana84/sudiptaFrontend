@@ -10,7 +10,9 @@ const api = axios.create({
        
         
     },
-    withCredentials:true,
+    withCredentials: true,
+    
+   
   
 
 })
@@ -18,5 +20,44 @@ const api = axios.create({
 export const loginApi=(data)=>{
     return api.post('/auth/login',data)
 }
+export const logoutUser=(data)=>{
+    return api.post('/auth/logout')
+}
+/// category
+export const allcategory=()=>{
+    return api.get('/category/allCategory')
+}
 
+
+
+
+
+api.interceptors.response.use(
+    (config) => {
+        return config;
+    },
+    async (error) => {
+        const originalRequest = error.config;
+        if (
+            error.response.status === 401 &&
+            originalRequest &&
+            !originalRequest._isRetry
+        ) {
+            originalRequest.isRetry = true;
+            try {
+                await axios.get(
+                    `${baseUrl}/auth/refresh`,
+                    {withCredentials:true}
+                   
+                );
+
+                return axios(originalRequest);
+            } catch (err) {
+                
+                console.log(err.message);
+            }
+        }
+        throw error;
+    }
+);
 export default api

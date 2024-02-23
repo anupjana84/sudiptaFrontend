@@ -1,58 +1,59 @@
-
-import React from 'react'
-import { Menu, X } from 'lucide-react'
+import React from "react";
+import { Menu, X } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { logout } from '../../Reducer/Auth';
-import { useDispatch } from 'react-redux';
-
+import { logout } from "../../Reducer/Auth";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../Api";
 
 const menuItems = [
   {
-    name: 'Home',
-    href: '/',
+    name: "Home",
+    href: "/",
   },
   {
-    name: 'Login',
-    href: '/login',
+    name: "Login",
+    href: "/login",
   },
   {
-    name: 'Admindashboard',
-    href: '/admin',
+    name: "Admindashboard",
+    href: "/admin",
   },
   {
-    name: 'Dashboard',
-    href: '/dashboard',
+    name: "Dashboard",
+    href: "/dashboard",
   },
   {
-    name: 'Product',
-    href: '/product',
+    name: "Product",
+    href: "/product",
   },
- 
-  
-]
+];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-  const dispatch= useDispatch()
-  const navigate= useNavigate()
-  const handleLogout=()=>{
-    dispatch(logout())
-    localStorage.removeItem('userdata')
-    navigate('/login')
-  
-  }
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      const data = await logoutUser();
+      if (data.data.statusCode == 200) {
+        dispatch(logout());
+        localStorage.removeItem("userdata");
+        navigate("/login");
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+  };
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="relative w-full bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
-          <span>
-            
-          </span>
+          <span></span>
           <span className="font-bold">DevUI</span>
         </div>
         <div className="hidden lg:block">
@@ -66,24 +67,22 @@ const Header = () => {
                   {item.name}
                 </a> */}
                 <NavLink
-  to={item.href}
-  className={({ isActive }) =>
-isActive ? "bg-red-500" : ""
-  }
->
-{item.name}
-</NavLink>
+                  to={item.href}
+                  className={({ isActive }) => (isActive ? "bg-red-500" : "")}
+                >
+                  {item.name}
+                </NavLink>
               </li>
             ))}
           </ul>
         </div>
         <div className="hidden lg:block">
           <button
-          onClick={handleLogout}
+            onClick={handleLogout}
             type="button"
             className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
-            Button text
+            Logout
           </button>
         </div>
         <div className="lg:hidden">
@@ -95,9 +94,7 @@ isActive ? "bg-red-500" : ""
               <div className="px-5 pb-6 pt-5">
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center space-x-2">
-                    <span>
-                     
-                    </span>
+                    <span></span>
                     <span className="font-bold">DevUI</span>
                   </div>
                   <div className="-mr-2">
@@ -127,7 +124,7 @@ isActive ? "bg-red-500" : ""
                   </nav>
                 </div>
                 <button
-                onClick={handleLogout}
+                  onClick={handleLogout}
                   type="button"
                   className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm
                    font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline 
@@ -141,6 +138,6 @@ isActive ? "bg-red-500" : ""
         )}
       </div>
     </div>
-  )
-}
-export default Header
+  );
+};
+export default Header;

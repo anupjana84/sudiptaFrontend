@@ -1,7 +1,7 @@
-import React from "react";
-import AdminLayout from "../../../Components/Admin/AdminLayout";
+import React from 'react'
+import AdminLayout from '../../../Components/Admin/AdminLayout'
 
-const Product = () => {
+const ProductAdd = () => {
   return (
     <AdminLayout>
       <main>
@@ -276,7 +276,7 @@ const Product = () => {
         </div>
       </main>
     </AdminLayout>
-  );
-};
+  )
+}
 
-export default Product;
+export default ProductAdd
