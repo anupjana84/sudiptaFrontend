@@ -10,12 +10,19 @@ import AdminDashboard from './Pages/Admin/AdminDashboard'
 import ProductAdd from './Pages/Admin/ProductAdd'
 import { useDispatch } from 'react-redux'
 
+import { ToastContainer, toast } from 'react-toastify';
+
 import AllProduct from './Pages/Admin/AllProduct'
+
+//Category
+import AllCetegory from './Pages/Admin/Category'
+
 
 
 // slice
 import { login } from "./Reducer/Auth";
-import AllCetegory from './Pages/Admin/Category'
+import AddCategory from './Pages/Admin/Category/AddCategory'
+
 
 const App = () => {
   const [loading, setLoading] = useState(false)
@@ -75,11 +82,17 @@ const App = () => {
           <AllCetegory/>
           </AdminProtectedRoute>
       } />
+      <Route path='/addCetegory' element={ 
+         <AdminProtectedRoute>
+          <AddCategory/>
+          </AdminProtectedRoute>
+      } />
       </Routes>
     
     </BrowserRouter>
     </>
     } 
+    <ToastContainer />
     </>
   )
 }

@@ -46,7 +46,7 @@ const AdminSideBar = ({sidebarOpen, setSidebarOpen}) => {
            className='h-10 flex justify-end items-center pr-3 w-full  lg:hidden '>
           
            </div> */}
-          <div class="flex items-center justify-between ">
+          <div className="flex items-center justify-between ">
             <div className='h-10 w-full flex justify-center items-center bg-lime-950'>
             <h3 className='text-white'>Dashboard</h3>
             </div>
@@ -55,7 +55,7 @@ const AdminSideBar = ({sidebarOpen, setSidebarOpen}) => {
             {/* <button
               aria-controls="sidebar"
               aria-expanded="false"
-              class="block lg:hidden"
+              className="block lg:hidden"
             >
               <AlignJustify className="fill-current" />
             </button> */}
@@ -90,7 +90,7 @@ const AdminSideBar = ({sidebarOpen, setSidebarOpen}) => {
                     <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-2">
                      {menuItems && menuItems.map((item)=>(
                       
-                        <li>
+                        <li key={item.name}>
                         <NavLink className={({isActive})=>`group
                         text-white flex justify-between relative  items-center gap-2.5
                         ${isActive?'bg-lime-500':"bg-red-500"}
@@ -140,7 +140,7 @@ const AdminSideBar = ({sidebarOpen, setSidebarOpen}) => {
                     <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-2">
                      {CategorymenuItems && CategorymenuItems.map((item)=>(
                       
-                        <li>
+                        <li key={item.name}>
                         <NavLink className={({isActive})=>`group
                         text-white flex justify-between relative  items-center gap-2.5
                         ${isActive?'bg-lime-500':"bg-red-500"}

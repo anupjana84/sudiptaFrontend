@@ -5,111 +5,111 @@ const Product = () => {
   return (
     <AdminLayout>
       <main>
-        <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-          <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <h2 class="text-title-md2 font-semibold text-black dark:text-white">
+        <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-title-md2 font-semibold text-black dark:text-white">
               Form Layout
             </h2>
             <nav>
-              <ol class="flex items-center gap-2">
+              <ol className="flex items-center gap-2">
                 <li>
-                  <a class="font-medium" href="/">
+                  <a className="font-medium" href="/">
                     Dashboard /
                   </a>
                 </li>
-                <li class="font-medium text-primary">Form Layout</li>
+                <li className="font-medium text-primary">Form Layout</li>
               </ol>
             </nav>
           </div>
-          <div class="grid grid-cols-1 gap-9 sm:grid-cols-2">
-            <div class="flex flex-col gap-9">
-              <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                  <h3 class="font-medium text-black dark:text-white">
+          <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
+            <div className="flex flex-col gap-9">
+              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
+                  <h3 className="font-medium text-black dark:text-white">
                     Contact Form
                   </h3>
                 </div>
                 <form action="#">
-                  <div class="p-6.5">
-                    <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
-                      <div class="w-full xl:w-1/2">
-                        <label class="mb-2.5 block text-black dark:text-white">
+                  <div className="p-6.5">
+                    <div className="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                      <div className="w-full xl:w-1/2">
+                        <label className="mb-2.5 block text-black dark:text-white">
                           First name
                         </label>
                         <input
                           type="text"
                           placeholder="Enter your first name"
-                          class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
-                      <div class="w-full xl:w-1/2">
-                        <label class="mb-2.5 block text-black dark:text-white">
+                      <div className="w-full xl:w-1/2">
+                        <label className="mb-2.5 block text-black dark:text-white">
                           Last name
                         </label>
                         <input
                           type="text"
                           placeholder="Enter your last name"
-                          class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                          className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                       </div>
                     </div>
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Email
-                        <span class="text-meta-1">*</span>
+                        <span className="text-meta-1">*</span>
                       </label>
                       <input
                         type="email"
                         placeholder="Enter your email address"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Subject
                       </label>
                       <input
                         type="text"
                         placeholder="Select subject"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         {" "}
                         Subject{" "}
                       </label>
-                      <div class="relative z-20 bg-transparent dark:bg-form-input">
-                        <select class="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary ">
+                      <div className="relative z-20 bg-transparent dark:bg-form-input">
+                        <select className="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary ">
                           <option
                             value=""
                             disabled=""
-                            class="text-body dark:text-bodydark"
+                            className="text-body dark:text-bodydark"
                           >
                             Select your subject
                           </option>
                           <option
                             value="USA"
-                            class="text-body dark:text-bodydark"
+                            className="text-body dark:text-bodydark"
                           >
                             USA
                           </option>
                           <option
                             value="UK"
-                            class="text-body dark:text-bodydark"
+                            className="text-body dark:text-bodydark"
                           >
                             UK
                           </option>
                           <option
                             value="Canada"
-                            class="text-body dark:text-bodydark"
+                            className="text-body dark:text-bodydark"
                           >
                             Canada
                           </option>
                         </select>
-                        <span class="absolute top-1/2 right-4 z-30 -translate-y-1/2">
+                        <span className="absolute top-1/2 right-4 z-30 -translate-y-1/2">
                           <svg
-                            class="fill-current"
+                            className="fill-current"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -128,64 +128,64 @@ const Product = () => {
                         </span>
                       </div>
                     </div>
-                    <div class="mb-6">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-6">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Message
                       </label>
                       <textarea
                         rows="6"
                         placeholder="Type your message"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       ></textarea>
                     </div>
-                    <button class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                    <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                       Send Message
                     </button>
                   </div>
                 </form>
               </div>
             </div>
-            <div class="flex flex-col gap-9">
-              <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                  <h3 class="font-medium text-black dark:text-white">
+            <div className="flex flex-col gap-9">
+              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
+                  <h3 className="font-medium text-black dark:text-white">
                     Sign In Form
                   </h3>
                 </div>
                 <form action="#">
-                  <div class="p-6.5">
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                  <div className="p-6.5">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Email
                       </label>
                       <input
                         type="email"
                         placeholder="Enter your email address"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
                     <div>
-                      <label class="mb-2.5 block text-black dark:text-white">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Password
                       </label>
                       <input
                         type="password"
                         placeholder="Enter password"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <div class="mt-5 mb-5.5 flex items-center justify-between">
-                      <label for="formCheckbox" class="flex cursor-pointer">
-                        <div class="relative pt-0.5">
+                    <div className="mt-5 mb-5.5 flex items-center justify-between">
+                      <label for="formCheckbox" className="flex cursor-pointer">
+                        <div className="relative pt-0.5">
                           <input
                             type="checkbox"
                             id="formCheckbox"
-                            class="taskCheckbox sr-only"
+                            className="taskCheckbox sr-only"
                           />
-                          <div class="box mr-3 flex h-5 w-5 items-center justify-center rounded border border-stroke dark:border-strokedark">
-                            <span class="text-white opacity-0">
+                          <div className="box mr-3 flex h-5 w-5 items-center justify-center rounded border border-stroke dark:border-strokedark">
+                            <span className="text-white opacity-0">
                               <svg
-                                class="fill-current"
+                                className="fill-current"
                                 width="10"
                                 height="7"
                                 viewBox="0 0 10 7"
@@ -205,67 +205,67 @@ const Product = () => {
                         <p>Remember me</p>
                       </label>
                       <a
-                        class="text-sm text-primary hover:underline"
+                        className="text-sm text-primary hover:underline"
                         href="/forms/form-layout"
                       >
                         Forget password?
                       </a>
                     </div>
-                    <button class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                    <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                       Sign In
                     </button>
                   </div>
                 </form>
               </div>
-              <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div class="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                  <h3 class="font-medium text-black dark:text-white">
+              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
+                  <h3 className="font-medium text-black dark:text-white">
                     Sign Up Form
                   </h3>
                 </div>
                 <form action="#">
-                  <div class="p-6.5">
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                  <div className="p-6.5">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Name
                       </label>
                       <input
                         type="text"
                         placeholder="Enter your full name"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Email
                       </label>
                       <input
                         type="email"
                         placeholder="Enter your email address"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <div class="mb-4.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-4.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Password
                       </label>
                       <input
                         type="password"
                         placeholder="Enter password"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <div class="mb-5.5">
-                      <label class="mb-2.5 block text-black dark:text-white">
+                    <div className="mb-5.5">
+                      <label className="mb-2.5 block text-black dark:text-white">
                         Re-type Password
                       </label>
                       <input
                         type="password"
                         placeholder="Re-enter password"
-                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
-                    <button class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                    <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                       Sign Up
                     </button>
                   </div>

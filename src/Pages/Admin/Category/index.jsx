@@ -4,6 +4,7 @@ import { allcategory } from '../../../Api'
 import useFetchCategories from '../../../hook/category'
 import { SpinerLoder } from '../../../Components/Loder/index.jsx'
 import SkeletonLoder from '../../../Components/Loder/SeletonLoder.jsx'
+import { Link } from 'react-router-dom'
 
 
 
@@ -17,7 +18,7 @@ if (loading)  return <SkeletonLoder/>
 if(error) return <p>Something went wrong</p>
   return (
     <AdminLayout>
-        <section className="mx-auto w-full max-w-full px-4 py-4">
+        <section className=" mx-auto w-full max-w-full px-4 py-4">
         <div className="flex flex-col space-y-4  md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-lg font-semibold">Category</h2>
@@ -27,12 +28,15 @@ if(error) return <p>Something went wrong</p>
             </p>
           </div>
           <div>
+             <Link  to="/addCetegory"> 
             <button
+           
               type="button"
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Add new Category
             </button>
+          </Link> 
           </div>
         </div>
         
@@ -73,8 +77,8 @@ if(error) return <p>Something went wrong</p>
                   <tbody className="divide-y divide-gray-200 bg-white">
                     {categories.map((item) => (
                       <tr key={item._id}>
-                        <td className="whitespace-nowrap px-4 py-4">
-                          <div className="flex items-center">
+                        <td className="whitespace-nowrap px-4 py-4 flex items-center">
+                          {/* <div className=""> */}
                             {/* <div className="h-10 w-10 flex-shrink-0">
                               <img
                                 className="h-10 w-10 rounded-full object-cover"
@@ -86,7 +90,7 @@ if(error) return <p>Something went wrong</p>
                               <div className="text-sm font-medium text-gray-900">{item.title}</div>
                               
                             </div>
-                          </div>
+                          {/* </div> */}
                         </td>
                         
                         <td className="whitespace-nowrap px-0 py-4">
@@ -95,14 +99,14 @@ if(error) return <p>Something went wrong</p>
                           </span>
                         </td>
                         <td className="whitespace-nowrap px-0 py-4">
-                        <button href="#" class="rounded-md
+                        <button href="#" className="rounded-md
                          bg-green-500 px-3 py-2 text-sm font-semibold
                          
                           text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
                             Edit
                           </button>
-                          <button href="#" class="rounded-md ml-5 bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                          <button href="#" className="rounded-md ml-5 bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
                             Delete
                           </button>
@@ -123,35 +127,35 @@ if(error) return <p>Something went wrong</p>
         </div>
       
         <div className="flex items-center justify-center pt-6">
-          <a href="#" className="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900">
+          <a href="#" className="mx-1 cursor-not-allowed text-sm font-semibold text-white">
             <span className="hidden lg:block">&larr; Previous</span>
             <span className="block lg:hidden">&larr;</span>
           </a>
           <a
             href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+            className="mx-1 flex items-center rounded-md border border-gray-800 px-3 py-1 text-gray-900 hover:scale-105"
           >
             1
           </a>
           <a
             href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+            className="mx-1 flex items-center rounded-md border border-gray-800 px-3 py-1 text-gray-900 hover:scale-105"
           >
             2
           </a>
           <a
             href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+            className="mx-1 flex items-center rounded-md border border-gray-800 px-3 py-1 text-gray-900 hover:scale-105"
           >
             3
           </a>
           <a
             href="#"
-            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+            className="mx-1 flex items-center rounded-md border border-gray-800 px-3 py-1 text-gray-900 hover:scale-105"
           >
             4
           </a>
-          <a href="#" className="mx-2 text-sm font-semibold text-gray-900">
+          <a href="#" className="mx-2 text-sm font-semibold text-white">
             <span className="hidden lg:block">Next &rarr;</span>
             <span className="block lg:hidden">&rarr;</span>
           </a>
