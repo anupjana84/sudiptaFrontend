@@ -10,16 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Reducer/Auth";
 import { loginApi } from "../../Api";
 import Layout from "../../Components/Layout";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import { loginValidationSchema } from "../../SchemaValidation/validation";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [email, setEmail] = React.useState("");
-  const [pass, setPass] = React.useState("");
-  const { role } = useSelector((state) => state.auth);
+ 
   // console.log(email, "email");
   // console.log(pass, "pass");
 

@@ -1,16 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { CalendarDays,AlignJustify } from "lucide-react";
-const AdminHeader = ({sidebarOpen, setSidebarOpen}) => {
+import React from "react";
+import { Link } from "react-router-dom";
+import { X, AlignJustify } from "lucide-react";
+const AdminHeader = ({ sidebarOpen, setSidebarOpen }) => {
   return (
-    <header className="sticky top-0 flex w-full bg-slate-600  drop-shadow-1
+    <header
+      className="sticky top-0 flex w-full bg-slate-600  drop-shadow-1
     
     dark:bg-boxdark dark:drop-shadow-none 
- ">
-      <div className="flex flex-grow items-center justify-between py-2  bg-emerald-500 px-4 shadow-2 md:px-6 2xl:px-11 " >
+ "
+    >
+      <div className="flex flex-grow items-center justify-between py-2  bg-pink-300 px-4 shadow-2 md:px-6 2xl:px-11 ">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           {/* <!-- Hamburger Toggle BTN --> */}
-        <button
+          <button
             aria-controls="sidebar"
             onClick={(e) => {
               e.stopPropagation();
@@ -18,9 +20,9 @@ const AdminHeader = ({sidebarOpen, setSidebarOpen}) => {
             }}
             className="z-99999 block rounded-sm   p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
           >
-            
-            <AlignJustify className='text-zinc-100' />
            
+            {!sidebarOpen ? <AlignJustify className="text-zinc-100" /> : <X className="lg:heden text-zinc-100"/>}
+
             {/* <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="du-block absolute right-0 h-full w-full">
                 <span
@@ -53,7 +55,7 @@ const AdminHeader = ({sidebarOpen, setSidebarOpen}) => {
                 ></span>
               </span>
             </span> */}
-          </button> 
+          </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
           {/* <Link className="block flex-shrink-0 lg:hidden" to="/">
@@ -62,7 +64,7 @@ const AdminHeader = ({sidebarOpen, setSidebarOpen}) => {
         </div>
 
         <div className="hidden sm:block">
-          <form >
+          <form>
             <div className="relative">
               <button className="absolute top-1/2 left-0 -translate-y-1/2">
                 <svg
@@ -98,9 +100,7 @@ const AdminHeader = ({sidebarOpen, setSidebarOpen}) => {
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
-          <ul className="flex items-center gap-2 2xsm:gap-4">
-            
-          </ul>
+          <ul className="flex items-center gap-2 2xsm:gap-4"></ul>
 
           {/* <!-- User Area --> */}
           {/* <DropdownUser /> */}
@@ -108,7 +108,7 @@ const AdminHeader = ({sidebarOpen, setSidebarOpen}) => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default AdminHeader
+export default AdminHeader;

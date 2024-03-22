@@ -1,7 +1,32 @@
-import React from 'react'
-import AdminLayout from '../../../Components/Admin/AdminLayout'
+import React from "react";
+import AdminLayout from "../../../Components/Admin/AdminLayout";
+import useFetchCategories from "../../../hook/category";
+import { useFormik } from "formik";
+import { ProductValidation } from "../../../SchemaValidation/ProductValidation";
 
 const ProductAdd = () => {
+  const { categories, error, loading } = useFetchCategories();
+const {
+  errors,
+  values,
+  touched,
+  handleBlur,
+  handleChange,
+  handleReset,
+  handleSubmit
+}=useFormik({
+    initialValues:{
+      title:"",
+      price:"",
+      description:"",
+      stock:"",
+      category:"",
+      image:"",
+
+    },
+    validationSchema:ProductValidation,
+    onSubmit:(values)=>{}
+})
   return (
     <AdminLayout>
       <main>
@@ -21,262 +46,163 @@ const ProductAdd = () => {
               </ol>
             </nav>
           </div>
-          <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
-            <div className="flex flex-col gap-9">
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                  <h3 className="font-medium text-black dark:text-white">
-                    Contact Form
-                  </h3>
-                </div>
-                <form action="#">
-                  <div className="p-6.5">
-                    <div className="mb-4.5 flex flex-col gap-6 xl:flex-row">
-                      <div className="w-full xl:w-1/2">
-                        <label className="mb-2.5 block text-black dark:text-white">
-                          First name
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Enter your first name"
-                          className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                        />
-                      </div>
-                      <div className="w-full xl:w-1/2">
-                        <label className="mb-2.5 block text-black dark:text-white">
-                          Last name
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Enter your last name"
-                          className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                        />
-                      </div>
-                    </div>
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Email
-                        <span className="text-meta-1">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Subject
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Select subject"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        {" "}
-                        Subject{" "}
-                      </label>
-                      <div className="relative z-20 bg-transparent dark:bg-form-input">
-                        <select className="relative z-20 w-full appearance-none rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary ">
-                          <option
-                            value=""
-                            disabled=""
-                            className="text-body dark:text-bodydark"
-                          >
-                            Select your subject
-                          </option>
-                          <option
-                            value="USA"
-                            className="text-body dark:text-bodydark"
-                          >
-                            USA
-                          </option>
-                          <option
-                            value="UK"
-                            className="text-body dark:text-bodydark"
-                          >
-                            UK
-                          </option>
-                          <option
-                            value="Canada"
-                            className="text-body dark:text-bodydark"
-                          >
-                            Canada
-                          </option>
-                        </select>
-                        <span className="absolute top-1/2 right-4 z-30 -translate-y-1/2">
-                          <svg
-                            className="fill-current"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <g opacity="0.8">
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
-                                fill=""
-                              ></path>
-                            </g>
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <div className="mb-6">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Message
-                      </label>
-                      <textarea
-                        rows="6"
-                        placeholder="Type your message"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      ></textarea>
-                    </div>
-                    <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
-                      Send Message
-                    </button>
-                  </div>
-                </form>
+          <form>
+          <div className="max-w-2xl flex bg-white m-auto flex-col rounded  p-2">
+            <div className="flex flex-col max-w-full w-full items-center">
+              <h1>Add Product</h1>
+            </div>
+            {/* input  */}
+            <div>
+              <label
+                htmlFor="title"
+                className="text-base font-medium text-gray-900"
+              >
+                {" "}
+                Product  Name{" "}
+              </label>
+              <div className="mt-2">
+                <input
+                value={values.title}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="text"
+                  placeholder="Product Title"
+                  id="title"
+                  
+                />
               </div>
             </div>
-            <div className="flex flex-col gap-9">
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                  <h3 className="font-medium text-black dark:text-white">
-                    Sign In Form
-                  </h3>
-                </div>
-                <form action="#">
-                  <div className="p-6.5">
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        placeholder="Enter password"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div className="mt-5 mb-5.5 flex items-center justify-between">
-                      <label for="formCheckbox" className="flex cursor-pointer">
-                        <div className="relative pt-0.5">
-                          <input
-                            type="checkbox"
-                            id="formCheckbox"
-                            className="taskCheckbox sr-only"
-                          />
-                          <div className="box mr-3 flex h-5 w-5 items-center justify-center rounded border border-stroke dark:border-strokedark">
-                            <span className="text-white opacity-0">
-                              <svg
-                                className="fill-current"
-                                width="10"
-                                height="7"
-                                viewBox="0 0 10 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M9.70685 0.292804C9.89455 0.480344 10 0.734667 10 0.999847C10 1.26503 9.89455 1.51935 9.70685 1.70689L4.70059 6.7072C4.51283 6.89468 4.2582 7 3.9927 7C3.72721 7 3.47258 6.89468 3.28482 6.7072L0.281063 3.70701C0.0986771 3.5184 -0.00224342 3.26578 3.785e-05 3.00357C0.00231912 2.74136 0.10762 2.49053 0.29326 2.30511C0.4789 2.11969 0.730026 2.01451 0.992551 2.01224C1.25508 2.00996 1.50799 2.11076 1.69683 2.29293L3.9927 4.58607L8.29108 0.292804C8.47884 0.105322 8.73347 0 8.99896 0C9.26446 0 9.51908 0.105322 9.70685 0.292804Z"
-                                  fill=""
-                                ></path>
-                              </svg>
-                            </span>
-                          </div>
-                        </div>
-                        <p>Remember me</p>
-                      </label>
-                      <a
-                        className="text-sm text-primary hover:underline"
-                        href="/forms/form-layout"
+            {errors.title && touched.title && (
+                    <p className="text-red-500">{errors.title}</p>
+                  )}
+            {/* Price  */}
+            <div className="mt-3">
+              <label
+                htmlFor="price"
+                className="text-base font-medium text-gray-900 mt-5"
+              >
+                {" "}
+                Product  Price{" "}
+              </label>
+              <div className="mt-2">
+                <input
+                 value={values.price}
+                 onChange={handleChange}
+                 onBlur={handleBlur}
+                  className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="text"
+                  placeholder="Price"
+                  id="price"
+                />
+              </div>
+            </div>
+            {/* Price  */}
+            <div className="mt-3">
+              <label
+                htmlFor="name"
+                className="text-base font-medium text-gray-900 mt-5"
+              >
+                {" "}
+                Product  Stock{" "}
+              </label>
+              <div className="mt-2">
+                <input
+                  className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="text"
+                  placeholder="Full Name"
+                  id="name"
+               />    
+              </div>
+            </div>
+            <div className="mt-3">
+              <label
+                htmlFor="name"
+                className="text-base font-medium text-gray-900 mt-5"
+              >
+                {" "}
+                Product  Description {" "}
+              </label>
+              <div className="mt-2">
+                <textarea
+                  className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="text"
+                  placeholder="Full Name"
+                  id="name"
+                  rows={5}
+               ></textarea>    
+              </div>
+            </div>
+            {/* select  */}
+           
+            <div className="mb-4.5 mt-5">
+              <label className="mb-2.5 block text-black "> Category </label>
+              <div className="relative z-20 bg-transparent dark:bg-form-input">
+                <select
+                  className="relative z-20 w-full max-w-full appearance-none
+                         rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary "
+                >
+                  {categories &&
+                    categories.map((item, i) => (
+                      <option
+                        value={item._id}
+                        disabled=""
+                        className="text-body dark:text-bodydark"
                       >
-                        Forget password?
-                      </a>
-                    </div>
-                    <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
-                      Sign In
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-                <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark">
-                  <h3 className="font-medium text-black dark:text-white">
-                    Sign Up Form
-                  </h3>
-                </div>
-                <form action="#">
-                  <div className="p-6.5">
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Enter your full name"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div className="mb-4.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        placeholder="Enter password"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <div className="mb-5.5">
-                      <label className="mb-2.5 block text-black dark:text-white">
-                        Re-type Password
-                      </label>
-                      <input
-                        type="password"
-                        placeholder="Re-enter password"
-                        className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
-                    </div>
-                    <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
-                      Sign Up
-                    </button>
-                  </div>
-                </form>
+                        {item.title}
+                      </option>
+                    ))}
+                </select>
+                <span className="absolute top-1/2 right-4 z-30 -translate-y-1/2">
+                  <svg
+                    className="fill-current"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.8">
+                      <path
+                        fillRule="evenodd"
+                        clip-rule="evenodd"
+                        d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                        fill=""
+                      ></path>
+                    </g>
+                  </svg>
+                </span>
               </div>
             </div>
+            <div className="mt-5">
+            <button
+              type="button"
+              className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+            >
+              Save Product{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="ml-2"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
           </div>
+          </div>
+          </form>
         </div>
       </main>
     </AdminLayout>
-  )
-}
+  );
+};
 
-export default ProductAdd
+export default ProductAdd;
