@@ -29,7 +29,7 @@ const AdminProtectedRoute =({children, authentication = true, role}) =>{
         // }
         
         //let authValue = authStatus === true ? true : false
-        console.log(authStatus,"tr",authrole)
+        // console.log(authStatus,"tr",authrole)
 
         if (authStatus && authrole==="user") {
           navigate("/dashboard")

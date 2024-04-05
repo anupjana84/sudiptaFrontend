@@ -30,6 +30,12 @@ export const allcategory=()=>{
 export const addCategory=(data)=>{
     return api.post('/category/createCategory',data)
 }
+export const addProduct=(data)=>{
+    return api.post('/product/save',data)
+}
+export const allProduct=(data)=>{
+    return api.get('/product/all',data)
+}
 
 
 

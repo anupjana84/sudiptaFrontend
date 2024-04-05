@@ -14,7 +14,7 @@ const Dashboard = () => {
 const clickbutton = async() => {
   try {
     const res = await api.get(`${baseUrl}/auth/allUser`) 
-    console.log(res,'dat')
+    // console.log(res,'dat')
     // if (res) {
     //   // dispatch(login(res.data.data))
     // }else{

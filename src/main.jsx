@@ -22,10 +22,11 @@ import AdminProtectedRoute from "./Routes/AdminProtectedRoute/index.jsx";
 import ErrorPage from "./Components/Error/index.jsx";
 
 //
-import Product from "./Pages/Admin/Product/index.jsx";
+
 import AdminDashboard from "./Pages/Admin/AdminDashboard/index.jsx";
 import ProductAdd from "./Pages/Admin/ProductAdd/index.jsx";
 import { SkeletonTheme } from "react-loading-skeleton";
+import AllProduct from "./Pages/Admin/AllProduct/index.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -117,11 +118,12 @@ const router = createBrowserRouter(
           }
         />
 
+      
         <Route
-          path="product"
+          path="allProduct"
           element={
             <AdminProtectedRoute authentication={true} role="user">
-              <Product />
+              <AllProduct />
             </AdminProtectedRoute>
           }
         />

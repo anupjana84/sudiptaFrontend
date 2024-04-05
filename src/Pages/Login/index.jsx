@@ -12,6 +12,7 @@ import { loginApi } from "../../Api";
 import Layout from "../../Components/Layout";
 import { useFormik } from "formik";
 import { loginValidationSchema } from "../../SchemaValidation/validation";
+import { errorMessage } from "../../Helper";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,8 +23,8 @@ const Login = () => {
   // console.log(pass, "pass");
 
   const onSubmitHandler = (values,resetForm) => {
-    console.log(values, resetForm)
-    resetForm();
+    // console.log(values, resetForm)
+    
     // e.preventDefault();
     // console.log("submit");
 
@@ -53,7 +54,8 @@ const Login = () => {
         // console.log(res);
       })
       .catch((err) => {
-        console.log(err, "err");
+        
+        errorMessage(err.response.data.message)
       });
   };
 

@@ -46,7 +46,7 @@ const AddCategory = () => {
 
         
 
-         console.log(res);
+        //  console.log(res);
          setLoding(false)
          successMessage(res.data.message);
       })
@@ -55,7 +55,7 @@ const AddCategory = () => {
      
         // setLoding(false)
          errorMessage(error.response.data.message);
-         console.log(error.response.data.message, "err");
+        //  console.log(error.response.data.message, "err");
         // console.log(err.message, "err.message");
       });
       // resetForm();

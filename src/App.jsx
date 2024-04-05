@@ -4,7 +4,7 @@ import Home from './Pages/Home'
 import Login from './Pages/Login'
 import ProtectedRoute from './Routes/ProtectedRoute'
 import AdminProtectedRoute from './Routes/AdminProtectedRoute'
-import Product from './Pages/Admin/Product'
+
 import Dashboard from './Pages/Dashboard'
 import AdminDashboard from './Pages/Admin/AdminDashboard'
 import ProductAdd from './Pages/Admin/ProductAdd'
@@ -62,11 +62,7 @@ const App = () => {
           <AdminDashboard/>
         </AdminProtectedRoute>
       } />
-      <Route path='/product' element={ 
-        <AdminProtectedRoute>
-          <Product/>
-          </AdminProtectedRoute>
-      } />
+      
       <Route path='/addProduct' element={ 
          <AdminProtectedRoute>
           <ProductAdd/>
