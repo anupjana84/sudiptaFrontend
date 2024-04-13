@@ -1,10 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import Header from "../../Components/Header";
-import InputComponent from "../../Components/InputComponent";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { baseUrl } from "../../Config";
+
 import { useNavigate, redirect, } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Reducer/Auth";

@@ -27,6 +27,7 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard/index.jsx";
 import ProductAdd from "./Pages/Admin/ProductAdd/index.jsx";
 import { SkeletonTheme } from "react-loading-skeleton";
 import AllProduct from "./Pages/Admin/AllProduct/index.jsx";
+import EditProduct from "./Pages/Admin/EditProduct/index.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -132,6 +133,14 @@ const router = createBrowserRouter(
           element={
             <AdminProtectedRoute authentication={true} role="user">
               <ProductAdd />
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="productEdit"
+          element={
+            <AdminProtectedRoute authentication={true} role="user">
+              <EditProduct />
             </AdminProtectedRoute>
           }
         />

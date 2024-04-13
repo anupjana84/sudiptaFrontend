@@ -36,6 +36,9 @@ export const addProduct=(data)=>{
 export const allProduct=(data)=>{
     return api.get('/product/all',data)
 }
+export const deleteProduct=(data)=>{
+    return api.delete('/product/'+data)
+}
 
 
 
