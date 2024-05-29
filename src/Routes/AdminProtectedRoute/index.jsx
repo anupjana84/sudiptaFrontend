@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import { logout } from '../../Reducer/Auth'
 
-logout
+
 
 const AdminProtectedRoute =({children, authentication = true, role}) =>{
     // console.log(authentication,"authentication")

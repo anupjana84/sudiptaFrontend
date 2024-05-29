@@ -5,6 +5,7 @@ import { Link, useNavigate, redirect } from "react-router-dom";
 
 const ProductItem = ({ item,deeleteToItem,setOpen }) => {
   const navigate = useNavigate();
+  console.log(item.image)
   return (
     <>
       <tr key={item._id}>
@@ -29,7 +30,7 @@ const ProductItem = ({ item,deeleteToItem,setOpen }) => {
         <td className="whitespace-nowrap px-0 py-4">
         <img
             className="h-10 w-10 rounded-full object-cover"
-            src={`http://localhost:8000/${item.image}`}
+            src={`http://localhost:8000${item.image}`}
             alt=""
           />
         </td>
@@ -48,27 +49,25 @@ const ProductItem = ({ item,deeleteToItem,setOpen }) => {
           </span>
         </td>
         <td className="whitespace-nowrap px-0 py-4 flex justify-center">
-          <Link
+          <button
           
-            to={{
-              pathname: '/productEdit',
-              state: {id: 1, name: 'sabaoon', shirt: 'green'}
-            
-           }}
+          onClick={()=>{
+            navigate(`/productEdit`,{state:item})
+          }}
             className="rounded-md
      bg-green-500 px-3 py-2 text-sm font-semibold
      
       text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Edit
-          </Link>
+          </button>
           <button
            onClick={()=>{
            
            
             
-            // setOpen(true )
-            // deeleteToItem(item._id)
+            setOpen(true )
+            deeleteToItem(item._id)
           }
             
           }

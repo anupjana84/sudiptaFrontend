@@ -16,7 +16,7 @@ import AllProduct from './Pages/Admin/AllProduct'
 
 //Category
 import AllCetegory from './Pages/Admin/Category'
-
+import EditProduct from "./Pages/Admin/EditProduct/index.jsx";
 
 
 // slice
@@ -71,6 +71,11 @@ const App = () => {
       <Route path='/allProduct' element={ 
          <AdminProtectedRoute>
           <AllProduct/>
+          </AdminProtectedRoute>
+      } />
+      <Route path='/productEdit' element={ 
+         <AdminProtectedRoute>
+          <EditProduct/>
           </AdminProtectedRoute>
       } />
       <Route path='/allCetegory' element={ 

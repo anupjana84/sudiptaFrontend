@@ -4,20 +4,21 @@ import useFetchCategories from "../../hook/category";
 import { useFormik, } from "formik";
 import { ProductValidation } from "../../SchemaValidation/ProductValidation";
 import { errorMessage, successMessage }  from "../../Helper";
-import { addProduct } from "../../Api";
+import { editProduct } from "../../Api";
 import CircleLoder from "../../Components/Loder/CircleLoder";
 import AdminLayout from "../Admin/AdminLayout";
+import { useNavigate } from "react-router-dom";
 const imagsrc="/src/images/thumbnail.png"
 
 
 
 
-const ProductForm = ({product}) => {
+const ProductFormEdit = ({product}) => {
+  const navigate=useNavigate()
   const [thumnail, setThumnail] = React.useState("/src/images/thumbnail.png");
   
   const { categories, error, loading } = useFetchCategories();
   const [lodding,setLodding]=useState(false)
-
 
 
 
@@ -35,12 +36,12 @@ const {
   resetForm
 }=useFormik({
     initialValues:{
-      title:"",
-      price:"",
-      stock:"",
-      description:"",
-      category: "",
-      image: thumnail,
+      title:product?.title ||"",
+      price:product?.price ||"",
+      stock:product?.stock ||"",
+      description:product?.description ||"",
+      category: product?.category?._id||"",
+      image:`http://localhost:8000/${product.image}`|| thumnail,
 
     },
     validationSchema:ProductValidation,
@@ -70,17 +71,21 @@ const pickImage=(e)=>{
   
 }
 const sumitProduct=async(value)=>{
+    console.log(value,'value')
   try {
     setLodding(true)
- const response=  await addProduct(value)
+ const response=  await editProduct(product._id,value)
  console.log(response)
  if (response.status===200) {
   console.log(response)
   setLodding(false)
-  // resetForm()
+
+   resetForm()
+   
   setThumnail("/src/images/thumbnail.png")
   // setStatus('success')
   successMessage(response.data.message)
+  navigate('/allProduct')
  }
   } catch (error) {
     setLodding(false)
@@ -88,12 +93,21 @@ const sumitProduct=async(value)=>{
     console.log(error)
   }
 }
+useEffect(() => {
+  if (product.image) {
+    setFieldValue('image',product.image)
+    setThumnail(`http://localhost:8000/${product.image}`)
+  }
 
+  return () => {
+    
+  }
+}, [])
 
  
   return (
     <AdminLayout>
-     <div className="relative">
+      {product?<div className="relative">
        {lodding &&  <CircleLoder/>}
       <main>
         <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
@@ -256,8 +270,8 @@ const sumitProduct=async(value)=>{
                   className="relative z-20 w-full max-w-full appearance-none
                          rounded border border-stroke bg-transparent py-3 px-5 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary "
                 >
-                  <option value=""
-                   label= "Select a Category" className="text-body dark:text-bodydark">
+                  <option value={product.category?product.category._id:""}
+                   label= {product.category?product.category.title:"Select a Category"} className="text-body dark:text-bodydark">
           Select a Category{" "}
         </option>
                   {categories &&
@@ -309,10 +323,10 @@ const sumitProduct=async(value)=>{
           </form>
         </div>
       </main>
-      </div> 
+      </div> :null}
        
     </AdminLayout>
   );
 };
 
-export default ProductForm;
+export default ProductFormEdit;

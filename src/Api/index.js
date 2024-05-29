@@ -40,6 +40,10 @@ export const deleteProduct=(data)=>{
     return api.delete('/product/'+data)
 }
 
+export const editProduct=(id,data)=>{
+    return api.patch(`/product/edit/${id}`,data)
+}
+
 
 
 
