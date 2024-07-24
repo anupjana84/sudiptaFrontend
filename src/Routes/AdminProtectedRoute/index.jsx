@@ -4,8 +4,9 @@ import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import { logout } from '../../Reducer/Auth'
+import { categoryGet } from '../../Api'
 
-
+categoryGet
 
 const AdminProtectedRoute =({children, authentication = true, role}) =>{
     // console.log(authentication,"authentication")
@@ -20,6 +21,7 @@ const AdminProtectedRoute =({children, authentication = true, role}) =>{
     const authrole = useSelector(state => state.auth.role)
 
     useEffect(() => {
+      
         //TODO: make it more easy to understand
 
         // if (authStatus ===true){

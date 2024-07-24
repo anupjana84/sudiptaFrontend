@@ -43,6 +43,9 @@ export const deleteProduct=(data)=>{
 export const editProduct=(id,data)=>{
     return api.patch(`/product/edit/${id}`,data)
 }
+export const categoryGet=(id,data)=>{
+    return api.get(`/category/edit/`)
+}
 
 
 
@@ -77,3 +80,13 @@ api.interceptors.response.use(
     }
 );
 export default api
+
+axios.get('hhhhhh',
+   {
+    headers:{
+        'Content-Type':"application/json",
+        Authorization :`Bearer ${JSON.parse(localStorage.getItem('userData')).accessToken}`
+
+    }
+   }
+)
